@@ -26,9 +26,8 @@ html {
 }
 
 .ch-wrap {
-    width: 816px;
-    height: 816px;
-    border: 2px solid #111;
+    width: 800px;
+    height: 800px;
 }
 
 .ch-item {

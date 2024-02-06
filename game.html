@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChessGame</title>
   <link rel="stylesheet" href="./styles/game.css">
+  <link rel="stylesheet" href="styles/chessboard-1.0.0.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="./scripts/chessboard-1.0.0.js"></script>
 </head>
 
 <body>
@@ -14,7 +17,7 @@
   </header>
   <main>
     <div class="main-container">
-      <div class="ch-wrap"></div>
+      <div id="board" class="ch-wrap"></div>
       <div class="info-container">
         <p id="info">Ходов: 0</p>
         <button id="finish-button" class="button-64" role="button"><span class="text">Закончить игру</span></button>
@@ -23,7 +26,7 @@
   </main>
   <footer>
   </footer>
-  <script src="./scripts/game.js" defer></script>
+  <script src="./scripts/game.js"></script>
 </body>
 
 </html>
