@@ -25,9 +25,8 @@ html {
     font-family: Phantomsans, sans-serif;
 }
 
-.ch-wrap {
-    width: 800px;
-    height: 800px;
+#board {
+    width: 40%;
 }
 
 .ch-item {

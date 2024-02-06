@@ -391,11 +391,40 @@
 // setFigures();
 
 // document.getElementById('finish-button').onclick = function () { gameOver(); };
-
+var positions = [
+    'start',
+    '3B4/8/pb6/kp6/8/PK6/1P6/2R5',
+    '2k5/8/2K5/8/3R1B2/8/8/8',
+    '4K3/3Q4/8/p3k2N/r7/R2B4/5P2/7b',
+    '4B3/8/6b1/3Q2pk/8/7P/6K1/8',
+    'kbK5/pp6/8/8/8/8/8/R7'
+];
 var config = {
     draggable: true,
     dropOffBoard: 'snapback', // this is the default
-    position: 'start'
-  }
+    position: positions[0],
+}
 
 var board = new Chessboard('board', config);
+
+$(window).resize(board.resize);
+
+$('#start-pos').on('click', function () {
+    board.position(positions[0])
+});
+$('#first-pos').on('click', function () {
+    board.position(positions[1])
+});
+$('#second-pos').on('click', function () {
+    board.position(positions[2])
+});
+$('#third-pos').on('click', function () {
+    board.position(positions[3])
+});
+$('#fourth-pos').on('click', function () {
+    board.position(positions[4])
+});
+$('#fifth-pos').on('click', function () {
+    board.position(positions[5])
+});
+
