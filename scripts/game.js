@@ -391,6 +391,19 @@
 // setFigures();
 
 // document.getElementById('finish-button').onclick = function () { gameOver(); };
+
+
+var $status = $('#status');
+
+function onDragStart (source, piece, position, orientation) {
+    if ((orientation === 'white' && piece.search(/^w/) === -1) ||
+        (orientation === 'black' && piece.search(/^b/) === -1)) {
+      return false
+    }
+  }
+  
+
+
 var positions = [
     'start',
     '3B4/8/pb6/kp6/8/PK6/1P6/2R5',
@@ -401,11 +414,14 @@ var positions = [
 ];
 var config = {
     draggable: true,
-    dropOffBoard: 'snapback', // this is the default
-    position: positions[0],
+    position: 'start',
+    onDragStart: onDragStart,
+
 }
 
 var board = new Chessboard('board', config);
+
+
 
 $(window).resize(board.resize);
 
