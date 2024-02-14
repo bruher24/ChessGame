@@ -393,15 +393,40 @@
 // document.getElementById('finish-button').onclick = function () { gameOver(); };
 
 
+const letters = 'abcdefgh';
+const numbers = '12345678';
+window.moves = 0;
+
 var $status = $('#status');
 
-function onDragStart (source, piece, position, orientation) {
+function onDragStart(source, piece, position, orientation) {
     if ((orientation === 'white' && piece.search(/^w/) === -1) ||
         (orientation === 'black' && piece.search(/^b/) === -1)) {
-      return false
+        return false
     }
-  }
-  
+}
+
+function mayMove(source, target, piece) {
+    switch (piece) {
+        case 'wP':
+            if (moves == 0 && target == source[0] + (parseInt(source[1]) + 2)) {
+                return true;
+            }
+            if (target == source[0] + (parseInt(source[1]) + 1)) {
+                return true;
+            }
+            if (target)
+            break;
+    }
+}
+
+
+function onDrop(source, target, piece) {
+    var move = mayMove(source, target, piece);
+
+    // illegal move
+    if (!move) return 'snapback'
+}
 
 
 var positions = [
@@ -416,6 +441,7 @@ var config = {
     draggable: true,
     position: 'start',
     onDragStart: onDragStart,
+    onDrop: onDrop,
 
 }
 
