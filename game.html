@@ -5,7 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChessGame</title>
-  <link rel="stylesheet" href="./styles/game.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/chessboard-1.0.0.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="js/chessboard-1.0.0.js"></script>
 </head>
 
 <body>
@@ -14,16 +17,23 @@
   </header>
   <main>
     <div class="main-container">
-      <div class="ch-wrap"></div>
+      <div id="board" class="ch-wrap"></div>
       <div class="info-container">
         <p id="info">Ходов: 0</p>
         <button id="finish-button" class="button-64" role="button"><span class="text">Закончить игру</span></button>
+        <button id="start-pos" class="button-64" role="button"><span class="text">Начальная позиция</span></button>
+        <button id="first-pos" class="button-64" role="button"><span class="text">1-я позиция</span></button>
+        <button id="second-pos" class="button-64" role="button"><span class="text">2-я позиция</span></button>
+        <button id="third-pos" class="button-64" role="button"><span class="text">3-я позиция</span></button>
+        <button id="fourth-pos" class="button-64" role="button"><span class="text">4-я позиция</span></button>
+        <button id="fifth-pos" class="button-64" role="button"><span class="text">5-я позиция</span></button>
       </div>
     </div>
   </main>
   <footer>
   </footer>
-  <script src="./scripts/game.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
+  <script src="js/game.js" type="module"></script>
 </body>
 
 </html>
