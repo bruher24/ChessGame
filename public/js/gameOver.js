@@ -11,6 +11,9 @@ switch (res) {
     case "lose":
         msg.innerText = "Вы проиграли.";
         break;
+    case "draw":
+        msg.innerText = "Патовая ситуация.";
+        break;
     case "exit":
         msg.innerText = "Партия не была завершена.";
         break;

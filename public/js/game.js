@@ -14,14 +14,14 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function gameOver(result = null) {
-  if (result) {
+function gameOver(result) {
+  if (result != 'exit') {
     localStorage.setItem("time", performance.now() - 3000);
     localStorage.setItem("result", result);
   }
   else {
     localStorage.setItem("time", performance.now());
-    localStorage.setItem("result", "exit");
+    localStorage.setItem("result", result);
   }
   window.location.href = 'gameOver.html';
 }
@@ -42,16 +42,19 @@ function makeRandomMove() {
 
   // game over
   if (possibleMoves.length === 0) {
-    sleep(3000).then(() => { gameOver('win') });
+    if(game.in_draw()) sleep(3000).then(() => { gameOver('draw') });
+    else sleep(3000).then(() => { gameOver('win') });
+  } else {
+    var randomIdx = Math.floor(Math.random() * possibleMoves.length)
+    game.move(possibleMoves[randomIdx])
+    board.position(game.fen())
+    if (moves >= 2) {
+      sleep(3000).then(() => { gameOver('lose') });
+    }
   }
 
-  var randomIdx = Math.floor(Math.random() * possibleMoves.length)
-  game.move(possibleMoves[randomIdx])
-  board.position(game.fen())
 
-  if (moves >= 2) {
-    sleep(3000).then(() => { gameOver('lose') });
-  }
+
 }
 
 function onDrop(source, target) {
@@ -116,6 +119,6 @@ $('#fifth-pos').on('click', function () {
 });
 
 $('#finish-button').on('click', function () {
-  gameOver();
+  gameOver('exit');
 });
 
