@@ -7,11 +7,22 @@
     cursor:pointer;
 }
 
+td {
+  width: 10%;
+  border: 1px solid black;
+  padding: 4px;
+}
+
 html {
     background-image: url("../src/bg.jpg");
     min-width: 100%;
     background-size: cover;
     font-family: Phantomsans, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 main {

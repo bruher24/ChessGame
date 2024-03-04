@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChessGame</title>
   <link rel="stylesheet" href="./public/css/index.css">
+  <script src="public/js/jquery-1.12.4.min.js"></script>
 </head>
 
 <body>
@@ -16,9 +17,29 @@
   <main>
     <div class="main-container">
       <h2>Проверьте свои силы!</h2>
+      <p>
+        <input type="radio" value="1" checked name="position" />Первая позиция
+      </p>
+      <p>
+        <input type="radio" value="2" name="position" />Вторая позиция
+      </p>
+      <p>
+        <input type="radio" value="3" name="position" />Третья позиция
+      </p>
+      <p>
+        <input type="radio" value="4" name="position" />Четвертая позиция
+      </p>
+      <p>
+        <input type="radio" value="5" name="position" />Пятая позиция
+      </p>
       <button id="start-game" class="button-64" role="button"><span class="text">Начать игру</span></button>
+      <input id="nickname" type="text" placeholder="Введите никнейм" name="nickname" value="">
     </div>
   </main>
+  <div class="table-container">
+    <table id="results">
+    </table>
+  </div>
   <footer>
   </footer>
   <script src="./public/js/app.js"></script>
