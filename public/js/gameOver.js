@@ -55,11 +55,13 @@ console.log(arr)
 
 
 if (result == "win") {
-    arr[nickname] = time;
-    // arr['vital'] = '8564';
-    // arr['akjd'] = '7655';
-    // arr['dima'] = '9021';
-    // arr['mitya'] = '9832';
+    console.log('nick ' + nickname)
+    console.log('time ' + time)
+    if (arr[nickname]) {
+        if (Number(arr[nickname]) > Number(time)) arr[nickname] = time;
+    }else {
+        arr[nickname] = time;
+    }
 
     //sort
     keysSorted = Object.keys(arr).sort(function (a, b) { return arr[a] - arr[b] })
@@ -72,6 +74,7 @@ if (result == "win") {
     console.log(arrSorted)
 
     results[position] = arrSorted;
+    console.log('sorted ' + arrSorted)
     localStorage.setItem("results", JSON.stringify(results));
 }
 

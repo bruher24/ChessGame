@@ -1,9 +1,5 @@
 
-//localStorage.removeItem('results');
-//Добавить кнопку для очистки топа
-
 var results = JSON.parse(localStorage.getItem("results")) ?? {};
-
 var names0 = Object.keys(results['1'] ?? {});
 var names1 = Object.keys(results['2'] ?? {});
 var names2 = Object.keys(results['3'] ?? {});
@@ -58,7 +54,9 @@ function tableFill(pos) {
         td[i].textContent = fillFrom++;
         if (fillFrom > 10) break;
     }
-    if (names && list) {
+    if (names.length != 0 && list) {
+        console.log('names ' + names)
+        console.log('list ' + list)
         let j = 0;
         for (let i = 4; i < td.length; i += 3) {
             td[i].textContent = names[j];
@@ -69,7 +67,7 @@ function tableFill(pos) {
         for (let i = 5; i < td.length; i += 3) {
             td[i].textContent = msToMinSec(list[names[j]]);
             j++;
-            if(!list[names[j]]) break;
+            if (!list[names[j]]) break;
 
         }
     }
@@ -82,10 +80,25 @@ $('input[type=radio][name=position]').on('change', function () {
     localStorage.setItem("position", $(this).val());
 });
 
-var startBtn = document.getElementById('start-game');
-startBtn.addEventListener('click', function () {
+
+
+
+$('#start-game').on('click', function () {
     let nickname = document.getElementById('nickname').value;
     nickname = nickname != "" ? nickname : 'Unnamed player';
     localStorage.setItem("nickname", nickname);
     window.location.href = 'game.html';
+});
+
+
+$('#clear').on('click', function () {
+    localStorage.setItem("results", JSON.stringify({
+        '1': {},
+        '2': {},
+        '3': {},
+        '4': {},
+        '5': {}
+    }));
+    location.reload();
+    console.log(123)
 });
